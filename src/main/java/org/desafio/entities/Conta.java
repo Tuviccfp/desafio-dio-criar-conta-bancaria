@@ -1,7 +1,7 @@
 package org.desafio.entities;
 
 public class Conta {
-    private int numConta;
+    private String numConta;
     private int agencia;
     private String nomeCliente;
     private float saldo = 0.0f;
@@ -10,7 +10,7 @@ public class Conta {
         super();
     }
 
-    public Conta(int agencia, String nomeCliente, int numConta) {
+    public Conta(int agencia, String nomeCliente, String numConta) {
         setAgencia(agencia);
         setNomeCliente(nomeCliente);
         setNumConta(numConta);
@@ -20,8 +20,11 @@ public class Conta {
         saldo += valor;
         setSaldo(valor);
         atualizarValorSaldo(saldo);
+        mensageUserCreate();
     }
-
+    protected String mensageUserCreate() {
+        return "Olá" + nomeCliente + "seja bem vindo ao nosso banco, sua conta foi criada com sucesso.";
+    }
     private String atualizarValorSaldo(float valor) {
         return "Novo valor atualizado: " + valor;
     }
@@ -42,11 +45,11 @@ public class Conta {
         this.agencia = agencia;
     }
 
-    public int getNumConta() {
+    public String getNumConta() {
         return numConta;
     }
 
-    protected void setNumConta(int numConta) {
+    protected void setNumConta(String numConta) {
         this.numConta = numConta;
     }
 
@@ -63,7 +66,7 @@ public class Conta {
         return "Dados da conta: \n" +
                 "Agência=" + agencia + "\n" +
                 "Número da conta=" + numConta + "\n" +
-                "Nome do cliente=" + nomeCliente + "/n" +
-                "saldo=" + saldo + "/n";
+                "Nome do cliente=" + nomeCliente + "\n" +
+                "saldo=" + saldo + "\n";
     }
 }
